@@ -1,0 +1,538 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== TindaSense global styles (mobile-first) ===== */
+
+:root {
+  --ts-primary: #0f766e;
+  --ts-primary-dark: #115e59;
+  --ts-grad-a: #0f766e;
+  --ts-grad-b: #0891b2;
+  --ts-grad-c: #6366f1;
+  --ts-secondary: #f59e0b;
+  --ts-accent: #6366f1;
+  --ts-bg: #f1f5f9;
+  --ts-surface: #ffffff;
+  --ts-text: #0f172a;
+  --ts-muted: #64748b;
+  --ts-positive: #16a34a;
+  --ts-negative: #dc2626;
+  transition: --ts-primary 0.4s;
+}
+
+/* ===== Mga tema (napapalitang kulay) ===== */
+[data-theme="teal"] {
+  --ts-primary: #0f766e;
+  --ts-primary-dark: #115e59;
+  --ts-grad-a: #0f766e;
+  --ts-grad-b: #0891b2;
+  --ts-grad-c: #6366f1;
+}
+[data-theme="indigo"] {
+  --ts-primary: #4f46e5;
+  --ts-primary-dark: #4338ca;
+  --ts-grad-a: #4f46e5;
+  --ts-grad-b: #7c3aed;
+  --ts-grad-c: #a855f7;
+}
+[data-theme="rose"] {
+  --ts-primary: #e11d48;
+  --ts-primary-dark: #be123c;
+  --ts-grad-a: #e11d48;
+  --ts-grad-b: #f43f5e;
+  --ts-grad-c: #fb7185;
+}
+[data-theme="amber"] {
+  --ts-primary: #d97706;
+  --ts-primary-dark: #b45309;
+  --ts-grad-a: #f59e0b;
+  --ts-grad-b: #f97316;
+  --ts-grad-c: #ef4444;
+}
+[data-theme="emerald"] {
+  --ts-primary: #059669;
+  --ts-primary-dark: #047857;
+  --ts-grad-a: #059669;
+  --ts-grad-b: #10b981;
+  --ts-grad-c: #34d399;
+}
+[data-theme="ocean"] {
+  --ts-primary: #0284c7;
+  --ts-primary-dark: #0369a1;
+  --ts-grad-a: #0ea5e9;
+  --ts-grad-b: #2563eb;
+  --ts-grad-c: #4f46e5;
+}
+[data-theme="grape"] {
+  --ts-primary: #7c3aed;
+  --ts-primary-dark: #6d28d9;
+  --ts-grad-a: #7c3aed;
+  --ts-grad-b: #c026d3;
+  --ts-grad-c: #db2777;
+}
+
+body {
+  background: var(--ts-bg);
+  color: var(--ts-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Keep the app centered on wide screens, phone-like on mobile */
+.ts-shell {
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* Gradient brand header — sumusunod sa napiling tema */
+.ts-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--ts-grad-a) 0%,
+    var(--ts-grad-b) 55%,
+    var(--ts-grad-c) 120%
+  );
+  transition: background 0.4s ease;
+}
+
+/* Quasar primary overrides para sumunod sa tema */
+.bg-primary {
+  background: var(--ts-primary) !important;
+}
+.text-primary {
+  color: var(--ts-primary) !important;
+}
+
+.ts-gradient-amber {
+  background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+}
+
+/* Soft card look */
+.ts-card {
+  border-radius: 18px;
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.06);
+  background: var(--ts-surface);
+}
+
+.ts-card-flat {
+  border-radius: 16px;
+  background: var(--ts-surface);
+  border: 1px solid #e2e8f0;
+}
+
+/* Stat tiles */
+.ts-stat {
+  border-radius: 18px;
+  padding: 16px;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.ts-stat .ts-stat-icon {
+  position: absolute;
+  right: -6px;
+  bottom: -10px;
+  font-size: 72px;
+  opacity: 0.16;
+}
+
+.ts-stat-value {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.ts-stat-label {
+  font-size: 12px;
+  opacity: 0.9;
+  letter-spacing: 0.3px;
+}
+
+/* Section titles */
+.ts-section-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ts-text);
+}
+
+.ts-muted {
+  color: var(--ts-muted);
+}
+
+/* Pills */
+.ts-pill {
+  border-radius: 999px;
+  padding: 2px 10px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* Recommendation / alert cards */
+.ts-alert {
+  border-radius: 16px;
+  border-left: 4px solid transparent;
+  background: #fff;
+}
+
+.ts-alert--danger {
+  border-left-color: var(--ts-negative);
+  background: #fef2f2;
+}
+
+.ts-alert--warning {
+  border-left-color: var(--ts-secondary);
+  background: #fffbeb;
+}
+
+.ts-alert--success {
+  border-left-color: var(--ts-positive);
+  background: #f0fdf4;
+}
+
+.ts-alert--info {
+  border-left-color: var(--ts-accent);
+  background: #eef2ff;
+}
+
+/* Bottom nav spacing so content isn't hidden */
+.ts-page {
+  padding-bottom: 86px;
+}
+
+/* Number emphasis */
+.ts-peso {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Fade list animation helper */
+.ts-fade-enter-active,
+.ts-fade-leave-active {
+  transition: opacity 0.25s ease;
+}
+.ts-fade-enter-from,
+.ts-fade-leave-to {
+  opacity: 0;
+}
+
+/* Product thumbnail sa listahan */
+.ts-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ===== Bottom navigation (mobile) ===== */
+/* Tiyaking full-width ang footer shell at pantay ang bawat tab,
+   para hindi "gumilid" o mag-ipon sa gitna. */
+.q-footer .ts-shell {
+  width: 100%;
+}
+
+.ts-bottom-nav {
+  width: 100%;
+}
+
+.ts-bottom-nav .q-tab {
+  flex: 1 1 0;
+  min-height: 56px;
+  padding: 4px 0;
+}
+
+.ts-bottom-nav .q-tab__icon {
+  font-size: 22px;
+}
+
+.ts-bottom-nav .q-tab__label {
+  font-size: 11px;
+  line-height: 1.1;
+}
+
+/* ===== Animations ===== */
+
+/* Page transition (slide + fade) */
+.ts-page-enter-active,
+.ts-page-leave-active {
+  transition: opacity 0.28s ease, transform 0.28s ease;
+}
+.ts-page-enter-from {
+  opacity: 0;
+  transform: translateY(10px);
+}
+.ts-page-leave-to {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+/* Pop-in para sa cards / stat tiles */
+@keyframes ts-pop-in {
+  0% {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.ts-animate-in {
+  animation: ts-pop-in 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Stagger: isa-isang lilitaw ang listahan */
+.ts-stagger > * {
+  animation: ts-pop-in 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.ts-stagger > *:nth-child(1) { animation-delay: 0.03s; }
+.ts-stagger > *:nth-child(2) { animation-delay: 0.08s; }
+.ts-stagger > *:nth-child(3) { animation-delay: 0.13s; }
+.ts-stagger > *:nth-child(4) { animation-delay: 0.18s; }
+.ts-stagger > *:nth-child(5) { animation-delay: 0.23s; }
+.ts-stagger > *:nth-child(6) { animation-delay: 0.28s; }
+.ts-stagger > *:nth-child(7) { animation-delay: 0.33s; }
+.ts-stagger > *:nth-child(8) { animation-delay: 0.38s; }
+
+/* Shine sweep sa hero stat */
+.ts-stat::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.25),
+    transparent
+  );
+  transform: skewX(-20deg);
+  animation: ts-shine 3.5s ease-in-out infinite;
+}
+@keyframes ts-shine {
+  0%,
+  60% {
+    left: -60%;
+  }
+  100% {
+    left: 130%;
+  }
+}
+
+/* Press feedback sa clickable cards */
+.ts-card,
+.ts-card-flat {
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+.ts-card:active,
+.ts-card-flat:active {
+  transform: scale(0.98);
+}
+
+/* Bar grow (charts) */
+@keyframes ts-bar-grow {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+/* Respetuhin ang reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .ts-animate-in,
+  .ts-stagger > *,
+  .ts-stat::after {
+    animation: none !important;
+  }
+}
+
+/* ===== Theme swatches ===== */
+.ts-swatch {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid transparent;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+.ts-swatch:hover {
+  transform: scale(1.08);
+}
+.ts-swatch--active {
+  border-color: #0f172a;
+  transform: scale(1.08);
+}
+
+/* App logo sa header */
+.ts-logo-avatar {
+  background: transparent;
+}
+.ts-logo-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Dashboard period toggle */
+.ts-period-toggle {
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);
+  font-size: 12px;
+}
+.ts-period-toggle .q-btn {
+  font-weight: 600;
+}
+
+/* ===== Dark mode ===== */
+body.body--dark {
+  --ts-bg: #0b1220;
+  --ts-surface: #111c2e;
+  --ts-text: #e2e8f0;
+  --ts-muted: #94a3b8;
+  background: var(--ts-bg);
+  color: var(--ts-text);
+}
+
+/* Surfaces */
+body.body--dark .ts-card,
+body.body--dark .ts-card-flat {
+  background: var(--ts-surface);
+  border-color: #1e293b;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+body.body--dark .q-footer.bg-white,
+body.body--dark .bg-white {
+  background: var(--ts-surface) !important;
+}
+body.body--dark .q-card,
+body.body--dark .q-menu,
+body.body--dark .q-dialog__inner > div,
+body.body--dark .q-list {
+  background-color: var(--ts-surface);
+  color: var(--ts-text);
+}
+
+/* --- Text readability sa dark --- */
+body.body--dark .ts-muted {
+  color: var(--ts-muted);
+}
+body.body--dark .ts-section-title {
+  color: var(--ts-text);
+}
+/* Default na text sa loob ng cards — maliwanag sa dark */
+body.body--dark .ts-card,
+body.body--dark .ts-card-flat,
+body.body--dark .ts-card .text-caption,
+body.body--dark .ts-card-flat .text-caption {
+  color: var(--ts-text);
+}
+/* Quasar dark text helpers -> gawing maliwanag */
+body.body--dark .text-dark,
+body.body--dark .text-black,
+body.body--dark .text-grey-8,
+body.body--dark .text-grey-9,
+body.body--dark .text-grey-10 {
+  color: #e2e8f0 !important;
+}
+body.body--dark .text-grey-6,
+body.body--dark .text-grey-7 {
+  color: #94a3b8 !important;
+}
+/* Quasar item labels at captions */
+body.body--dark .q-item__label {
+  color: var(--ts-text);
+}
+body.body--dark .q-item__label--caption {
+  color: var(--ts-muted);
+}
+/* Input text + labels */
+body.body--dark .q-field__native,
+body.body--dark .q-field__prefix,
+body.body--dark .q-field__suffix,
+body.body--dark .q-field__label,
+body.body--dark .q-field__messages {
+  color: var(--ts-text);
+}
+body.body--dark .q-field__label {
+  color: var(--ts-muted);
+}
+
+/* --- Tailwind slate/gray text -> maliwanag --- */
+body.body--dark .tw-text-slate-900,
+body.body--dark .tw-text-slate-800,
+body.body--dark .tw-text-slate-700,
+body.body--dark .tw-text-gray-800,
+body.body--dark .tw-text-gray-700 {
+  color: #e2e8f0 !important;
+}
+body.body--dark .tw-text-slate-600,
+body.body--dark .tw-text-slate-500,
+body.body--dark .tw-text-slate-400,
+body.body--dark .tw-text-gray-600,
+body.body--dark .tw-text-gray-500 {
+  color: #94a3b8 !important;
+}
+
+/* --- Tailwind light bg -> madilim --- */
+body.body--dark .tw-bg-slate-50,
+body.body--dark .tw-bg-slate-100,
+body.body--dark .tw-bg-gray-50,
+body.body--dark .tw-bg-gray-100,
+body.body--dark .tw-bg-white {
+  background-color: #1a2537 !important;
+}
+
+/* Soft colored chips/badges — panatilihing readable ang text sa loob.
+   Ang mga ts-alert ay may sariling light bg; sa dark, gawing mas malalim
+   pero iwan ang colored text (readable pa rin sila). */
+body.body--dark .ts-alert {
+  background: #111c2e;
+}
+body.body--dark .ts-alert--danger {
+  background: #2a1517;
+}
+body.body--dark .ts-alert--warning {
+  background: #2a2213;
+}
+body.body--dark .ts-alert--success {
+  background: #122a1c;
+}
+body.body--dark .ts-alert--info {
+  background: #161d33;
+}
+
+/* ===== Payment method chips (readable sa light at dark) ===== */
+.ts-pay-chip {
+  background: #e2e8f0;
+  color: #334155;
+  font-weight: 600;
+}
+.ts-pay-chip .q-icon {
+  color: #475569;
+}
+.ts-pay-chip--active {
+  font-weight: 700;
+}
+/* active chip: kulay na ang bahala ang Quasar color/text-color props */
+
+body.body--dark .ts-pay-chip {
+  background: #26334a;
+  color: #e2e8f0;
+}
+body.body--dark .ts-pay-chip .q-icon {
+  color: #cbd5e1;
+}
+/* Siguraduhing puti ang text/icon sa active chip kahit dark */
+.ts-pay-chip--active,
+.ts-pay-chip--active .q-icon,
+body.body--dark .ts-pay-chip--active,
+body.body--dark .ts-pay-chip--active .q-icon {
+  color: #ffffff !important;
+}
